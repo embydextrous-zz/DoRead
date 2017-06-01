@@ -1,0 +1,37 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion v.compileSdk
+    buildToolsVersion v.buildTools
+
+    defaultConfig {
+        minSdkVersion v.minSdk
+        targetSdkVersion v.targetSdk
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+    }
+}
+
+dependencies {
+    compile("com.github.tony19:logback-android-classic:${v.logback}") {
+        exclude group: 'com.google.android'
+    }
+    compile("org.slf4j:slf4j-api:${v.slf4j}") {
+        exclude group: 'org.slf4j.impl'
+    }
+    compile "org.jetbrains.kotlin:kotlin-stdlib:${v.kotlin}"
+}
