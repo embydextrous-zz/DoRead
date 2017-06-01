@@ -29,7 +29,10 @@ ext {
             buildTools: '25.0.3',
 
             //sorted
-            androidSupport : '25.3.1'
+            androidSupport : '25.3.1',
+            logback : '1.1.1-6',
+            kotlin : '1.1.2-4',
+            slf4j : '1.7.21'
     ]
 }
 
